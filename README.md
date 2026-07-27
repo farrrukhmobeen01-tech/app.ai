@@ -43,10 +43,10 @@ When these tasks are managed across separate calendars, note-taking apps, spread
 
 ---
 
-## 3. Live Demo & Repository
+## 3. Live Demo
 
-* **Live Application:** [Launch CampusFlow AI](https://final-campus-flow.vercel.app/)
-* **Public GitHub Repository:** [View Source Code on GitHub](https://github.com/farrrukhmobeen01-tech/Final_campus_flow)
+* **Live Application:** [Launch CampusFlow AI](https://app-ai-mu-nine.vercel.app/)
+* **Public GitHub Repository:** [View Source Code on GitHub](https://github.com/farrrukhmobeen01-tech/app.ai)
 
 ---
 
@@ -218,8 +218,8 @@ Follow these steps to run CampusFlow AI locally on your machine.
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/farrrukhmobeen01-tech/Final_campus_flow.git
-   cd Final_campus_flow
+   git clone https://github.com/farrrukhmobeen01-tech/app.ai.git
+   cd app.ai
    ```
 
 2. **Install Dependencies:**
