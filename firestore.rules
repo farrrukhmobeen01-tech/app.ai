@@ -1,0 +1,77 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Global default-deny rule
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function getProjectData(projectId) {
+      return get(/databases/$(database)/documents/projects/$(projectId)).data;
+    }
+
+    function isProjectMember(projectId) {
+      let project = getProjectData(projectId);
+      return isSignedIn() && (
+        project.ownerId == request.auth.uid ||
+        (project.memberIds is list && request.auth.uid in project.memberIds) ||
+        (request.auth.token.email != null && project.memberEmails is list && request.auth.token.email in project.memberEmails)
+      );
+    }
+
+    // User profiles & user-owned subcollections
+    // (courses, assignments, assessments, studySessions, availability, scheduleSessions,
+    // academicRisks, careerRoadmaps, portfolioProfiles, notificationPreferences, notifications)
+    match /users/{userId} {
+      allow read, write: if isOwner(userId);
+
+      match /{allSubcollections=**} {
+        allow read, write: if isOwner(userId);
+      }
+    }
+
+    // Group Projects & Project Tasks
+    match /projects/{projectId} {
+      // Authenticated users can read projects list and view project details
+      allow read: if isSignedIn();
+      
+      // Creating a project requires user to set themselves as owner
+      allow create: if isSignedIn() && request.resource.data.ownerId == request.auth.uid;
+      
+      // Updating a project requires being authenticated and being the owner or a member
+      allow update: if isSignedIn() && (
+        resource.data.ownerId == request.auth.uid ||
+        (resource.data.memberIds is list && request.auth.uid in resource.data.memberIds) ||
+        (request.auth.token.email != null && resource.data.memberEmails is list && request.auth.token.email in resource.data.memberEmails)
+      );
+
+      // Deleting a project requires being the project owner
+      allow delete: if isSignedIn() && resource.data.ownerId == request.auth.uid;
+
+      // Tasks subcollection under projects - only authorized project members/owners can access
+      match /tasks/{taskId} {
+        allow read, write: if isProjectMember(projectId);
+      }
+    }
+
+    // Public Portfolios
+    match /publicPortfolios/{portfolioId} {
+      // Unauthenticated and authenticated users may read published public portfolios
+      allow read: if true;
+
+      // Only authenticated users can write public portfolio matching their own userId
+      allow create, update: if isSignedIn() && request.resource.data.userId == request.auth.uid;
+      allow delete: if isSignedIn() && resource.data.userId == request.auth.uid;
+    }
+  }
+}

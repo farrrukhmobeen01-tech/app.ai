@@ -1,0 +1,33 @@
+{
+  "entities": {
+    "users": {
+      "title": "User",
+      "description": "Student profile",
+      "properties": {
+        "uid": { "type": "string" },
+        "fullName": { "type": "string" },
+        "email": { "type": "string" },
+        "university": { "type": "string" },
+        "degree": { "type": "string" },
+        "semester": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["uid", "fullName", "email"]
+    },
+    "projects": {
+      "title": "Group Project",
+      "description": "Collaborative group project",
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "courseId": { "type": "string" },
+        "ownerId": { "type": "string" },
+        "memberIds": { "type": "array", "items": { "type": "string" } },
+        "memberEmails": { "type": "array", "items": { "type": "string" } },
+        "deadline": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["name", "ownerId", "memberIds"]
+    }
+  }
+}

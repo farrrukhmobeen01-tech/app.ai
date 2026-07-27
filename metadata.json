@@ -1,0 +1,6 @@
+{
+  "name": "CampusFlow AI",
+  "description": "Your university life. Organized, guided, and powered by AI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
