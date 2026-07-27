@@ -191,17 +191,16 @@ All AI workflows in CampusFlow AI rely on tailored system instructions enforced 
 
 ---
 
-## 9. Screenshots
+## Screenshots
 
-![CampusFlow AI Dashboard](screenshots/dashboard.png)
-*Figure 1: Main Dashboard featuring academic overview metrics, upcoming assignments, study session trackers, and AI recommendations.*
+### Dashboard
+![CampusFlow AI Dashboard](./public/screenshots/dashboard.png)
 
-![AI Study Assistant](screenshots/ai-study-assistant.png)
-*Figure 2: AI Study Assistant view demonstrating automated practice MCQ generation, flashcards, and concept explanations.*
+### AI Study Assistant
+![AI Study Assistant](./public/screenshots/study-assistant.png)
 
-![Career Roadmap](screenshots/career-roadmap.png)
-*Figure 3: AI Career Roadmap generator mapping target job roles to required skills, portfolio projects, and stage-by-stage learning goals.*
-
+### Career Roadmap
+![Career Roadmap](./public/screenshots/career-roadmap.png)
 ---
 
 ## 10. Getting Started
