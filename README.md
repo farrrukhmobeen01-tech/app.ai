@@ -289,12 +289,14 @@ All AI workflows in CampusFlow AI rely on custom instructions written specifical
 
 ## 📸 9. Screenshots
 
-Dashboard
+**Dashboard**
 ![image alt](https://github.com/farrrukhmobeen01-tech/app.ai/blob/main/dashboard.png?raw=true)
 
-Ai study assistant
+**Ai study assistant**
 ![image alt](https://github.com/farrrukhmobeen01-tech/app.ai/blob/main/ai-study-assistant.png?raw=true)
 
+**Career Roadmap**
+![image alt](https://github.com/farrrukhmobeen01-tech/app.ai/blob/main/career-roadmap.png?raw=true)
 ---
 
 ## 🚀 10. Getting Started
