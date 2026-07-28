@@ -289,7 +289,7 @@ All AI workflows in CampusFlow AI rely on custom instructions written specifical
 
 ## 📸 9. Screenshots
 
-Screenshots will be added before final submission.
+![image alt](https://github.com/farrrukhmobeen01-tech/app.ai/blob/main/dashboard.png?raw=true)
 
 ---
 
